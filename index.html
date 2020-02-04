@@ -1,1 +1,37 @@
-<h5>hello, world!</h5>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Dining philosophers</title>
+  <style>
+    body, html {
+      height: 100%;
+      display: grid;
+      margin: 0;
+      min-width: 800px;
+      min-height: 800px;
+    }
+    #canvas {
+      margin: auto;
+      width: 800px;
+      height: 800px;
+    }
+    #controls {
+      position: absolute;
+    }
+  </style>
+
+</head>
+<body>
+  <div id="controls">
+    <label id="labelForPhils" for="philosophers">philosophers: </label>
+    <input type="number" value="6" id="philosophers">
+    <button id="run" type="button">run</button>
+  </div>
+
+  <canvas id="canvas" width="800" height="800"></canvas>
+  <script src="./index.js"></script>
+</body>
+</html>
