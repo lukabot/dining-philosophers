@@ -80,5 +80,12 @@ const draw = function(numberOfPhils) {
 const runbtn = document.getElementById("run");
 runbtn.addEventListener("click", function() {
   const phils = document.getElementById("philosophers");
-  run(parseInt(phils.value));
+  const numberOfPhils = parseInt(phils.value);
+
+  if(numberOfPhils < 2) {
+    alert("At least 2 philosophers are needed");
+    return;
+  }
+
+  run(numberOfPhils);
 });
