@@ -6,6 +6,7 @@ const run = function(numberOfPhils) {
   /// clean workers
   workers.map(worker => worker.terminate());
   workers = [];
+  cancelAnimationFrame(raf);
 
   const WORKER_SIZE = parseInt(numberOfPhils);
 
@@ -27,6 +28,7 @@ const run = function(numberOfPhils) {
 /// draw screen
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext('2d');
+let raf = null;
 const draw = function(numberOfPhils) {
   const x = canvas.width / 2;
   const y = canvas.height / 2;
@@ -73,7 +75,7 @@ const draw = function(numberOfPhils) {
   }
   ctx.translate(-x, -y);
 
-  requestAnimationFrame(_ => draw(numberOfPhils));
+  raf = requestAnimationFrame(_ => draw(numberOfPhils));
 };
 
 /// run button
