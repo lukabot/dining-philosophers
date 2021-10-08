@@ -1,7 +1,7 @@
 const minEatTime = 0;
-const maxEatTime = 1000;
+const maxEatTime = 500;
 const minThinkTime = 0;
-const maxThinkTime = 1000;
+const maxThinkTime = 500;
 const sleep = 150;
 
 self.onmessage = (e => {

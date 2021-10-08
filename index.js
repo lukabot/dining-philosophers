@@ -78,6 +78,12 @@ const draw = function(numberOfPhils) {
   raf = requestAnimationFrame(_ => draw(numberOfPhils));
 };
 
+/// check sab and atmoics is available
+if(typeof SharedArrayBuffer === "undefined" || typeof Atomics === "undefined") {
+  alert("Your browser does not support requirements!");
+  throw new Error("Not supported browser");
+}
+
 /// run button
 const runbtn = document.getElementById("run");
 runbtn.addEventListener("click", function() {
