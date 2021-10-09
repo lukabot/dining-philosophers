@@ -18,23 +18,19 @@ self.onmessage = (e => {
     });
 
     const pickUpLeft = _ => new Promise(res => {
-      while(true) {
-        Atomics.wait(typedArray, leftChopstickIndex, leftPhilosopherIndex);
-        if(Atomics.compareExchange(typedArray, leftChopstickIndex, -1, index) == -1) {
-          /// wait before picking right chopstick
-          setTimeout(res, sleep);
-          return;
-        }
+      Atomics.wait(typedArray, leftChopstickIndex, leftPhilosopherIndex);
+      if(Atomics.compareExchange(typedArray, leftChopstickIndex, -1, index) == -1) {
+        /// wait before picking right chopstick
+        setTimeout(res, sleep);
+        return;
       }
     });
 
     const pickUpRight = _ => new Promise(res => {
-      while(true) {
-        Atomics.wait(typedArray, rightChopstickIndex, rightPhilosopherIndex);
-        if(Atomics.compareExchange(typedArray, rightChopstickIndex, -1, index) == -1) {
-          res();
-          return;
-        }
+      Atomics.wait(typedArray, rightChopstickIndex, rightPhilosopherIndex);
+      if(Atomics.compareExchange(typedArray, rightChopstickIndex, -1, index) == -1) {
+        res();
+        return;
       }
     });
 
